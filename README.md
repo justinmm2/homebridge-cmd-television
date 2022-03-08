@@ -59,4 +59,4 @@ npm i --prefix /homebridge https://github.com/NorthernMan54/homebridge-cmd-telev
 
 Voila! homebridge-cmd-television and its dependencies are now installed in /homebridge, and should persist through container restarts.
 
-You can now **create a configuration and credentials file by following the instructions in the "Installation" section above**.
+**You can now create a configuration and credentials file by following the instructions in the "Installation" section above**. Make sure they are placed inside /homebridge.
