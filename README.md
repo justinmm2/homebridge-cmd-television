@@ -32,20 +32,20 @@ Configuration sample:
 
 ## Using with a Synology Docker Installation
 
-Homebridge can be installed on Synology NAS devices, via the use of a Docker container.
+Homebridge can be installed on Synology NAS devices, via a Docker container.
 
-When doing so, the installation of this plugin requires additional and altered steps.
+When using this plugin with a Synology installation, installation requires additional and altered steps.
 
 Notably, the Synology container only persists the /homebridge path. In order for this plugin to persist across container restarts, it and its dependencies will need to be installed to this path. In turn, two items in the default container configuration must also be changed.
 
 
-# Ran inside the Homebridge container on the synology (via web console)
+## Altered Synology Installation Instructions
 
-First, stop the Homebridge container on the Synology if it is already running. This is done by launching the "Docker" application, and switching to the "Container" page. Power off the container.
+First, stop the Homebridge container on the Synology if it is already running. Launch the "Docker" application, and switch to the "Container" page. Power off the container.
 
-Once stopped, edit the Homebridge container. Switch to the "Environment" tab. Modify the "PATH" variable to append an aditional directory at the end: /homebridge/python/bin. Then, add a new variable: "PYTHONPATH"; its value should be /homebridge/python. You can then power the container on again.
+Once stopped, edit the Homebridge container. Switch to the "Environment" tab. Modify the "PATH" variable to append an aditional directory at the end: /homebridge/python/bin. Then, add a new variable: "PYTHONPATH"; its value should be /homebridge/python. Power the container on again.
 
-Once the container is running again, navigate and log in to the Homebridge UI. Launch a Homebridge Terminal from the upper-right drop-down menu. Then, run the following commands:
+Once the container is running, navigate and log in to the Homebridge UI. Launch a Homebridge Terminal from the upper-right drop-down menu. Then, run the following commands:
 
 ```
 mkdir /homebridge/python
@@ -60,4 +60,3 @@ npm i --prefix /homebridge https://github.com/NorthernMan54/homebridge-cmd-telev
 Voila! homebridge-cmd-television and its dependencies are now installed in /homebridge, and should persist through container restarts.
 
 You can now create a configuration and credentials file following the instructions in the "Installation" section.
-
